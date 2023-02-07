@@ -48,7 +48,8 @@ export const AsideStyled = styled.aside`
     form .input-block textarea {
         margin-top: 7px;
         width: 100%;
-        height: 200px;
+        height: 150px;
+        //height: 200px;
         font-size: 14px;
         color: #666;
         border: 0;

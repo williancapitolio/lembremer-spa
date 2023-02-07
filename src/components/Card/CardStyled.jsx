@@ -18,7 +18,7 @@ export const CardStyled = styled.li`
     }
 
     div span {
-        color: #FFEAE6;
+        color: #C4C4C4;
         cursor: pointer;
     }
 
@@ -32,7 +32,8 @@ export const CardStyled = styled.li`
         margin-top: 7px;
         margin-bottom: 5px;
         width: 100%;
-        height: 130px;
+        height: 100px;
+        //height: 130px;
         font-size: 14px;
         color: #666;
         border: 0;

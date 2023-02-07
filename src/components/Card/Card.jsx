@@ -1,4 +1,5 @@
 import { CardStyled } from "./CardStyled";
+import { AiOutlineDelete, AiOutlineExclamationCircle } from "react-icons/ai";
 
 export function Card({ data }) {
     return (
@@ -6,10 +7,10 @@ export function Card({ data }) {
             <CardStyled>
                 <div>
                     <strong>{data.title}</strong>
-                    <span>x</span>
+                    <span><AiOutlineDelete size={20} /></span>
                 </div>
                 <textarea defaultValue={data.text}></textarea>
-                <span>!</span>
+                <span><AiOutlineExclamationCircle size={20} /></span>
             </CardStyled>
         </>
     );
