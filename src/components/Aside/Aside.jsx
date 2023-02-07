@@ -2,7 +2,7 @@ import { useState } from "react";
 import { api } from "../../services/Api";
 import { AsideStyled } from "./AsideStyled";
 
-export default function Aside() {
+export function Aside() {
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
 

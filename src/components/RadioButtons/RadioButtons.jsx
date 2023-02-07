@@ -1,22 +1,7 @@
-import { useState } from "react";
 import Radio from "@mui/material/Radio";
 import { RadioStyled } from "./RadioButtonsStyled";
 
-export function RadioButtons() {
-    const [selectedValue, setSelectedValue] = useState("all");
-
-    const handleChange = (event) => {
-        setSelectedValue(event.target.value);
-    };
-
-    const controlProps = (item) => ({
-        checked: selectedValue === item,
-        onChange: handleChange,
-        value: item,
-        name: "color-radio-button-demo",
-        inputProps: { "aria-label": item },
-    });
-
+export function RadioButtons({ controlProps }) {
     return (
         <>
             <RadioStyled>

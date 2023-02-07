@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { api } from "./services/Api";
 import { GlobalStyled } from "./GlobalStyled";
+//import { Aside } from "./components/Aside/Aside";
 import { AsideStyled } from "./components/Aside/AsideStyled";
-//import Aside from "./components/Aside/Aside";
 import { Card } from "./components/Card/Card";
 import { RadioButtons } from "./components/RadioButtons/RadioButtons";
 
 export default function App() {
+    const [selectedValue, setSelectedValue] = useState("all");
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
     const [notesList, setNotesList] = useState([]);
@@ -14,6 +15,33 @@ export default function App() {
     useEffect(() => {
         getAllNotes();
     }, []);
+
+    async function loadNotes(option) {
+        const params = { priority: option };
+        const response = await api.get("/priorities", {
+            params
+        });
+        if (response) {
+            setNotesList(response.data)
+        }
+    };
+
+    const handleChange = (e) => {
+        setSelectedValue(e.target.value);
+        if (e.target.checked && e.target.value !== "all") {
+            loadNotes(e.target.value);
+        } else {
+            getAllNotes();
+        }
+    };
+
+    const controlProps = (item) => ({
+        checked: selectedValue === item,
+        onChange: handleChange,
+        value: item,
+        name: "color-radio-button-demo",
+        inputProps: { "aria-label": item },
+    });
 
     async function getAllNotes() {
         const response = await api.get("/notes",);
@@ -84,7 +112,9 @@ export default function App() {
                         </div>
                         <button id="SubmitButton" type="submit">Salvar</button>
                     </form>
-                    <RadioButtons />
+                    <RadioButtons
+                        controlProps={controlProps}
+                    />
                 </AsideStyled>
                 <main>
                     <ul>
