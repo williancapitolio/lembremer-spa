@@ -73,7 +73,12 @@ export default function App() {
         });
         setTitle("");
         setText("");
-        setNotesList([...notesList, response.data]);
+        if (selectedValue !== "all") {
+            getAllNotes();
+        } else {
+            setNotesList([...notesList, response.data]);
+        }
+        setSelectedValue("all");
     };
 
     useEffect(() => {
