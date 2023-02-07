@@ -57,7 +57,9 @@ export default function App() {
 
     async function handleChangePriority(id) {
         const changedPriorityNote = await api.patch(`/priorities/${id}`);
-        if (changedPriorityNote) {
+        if (changedPriorityNote && selectedValue !== "all") {
+            loadNotes(selectedValue);
+        } else if (changedPriorityNote) {
             getAllNotes();
         }
     };
