@@ -6,7 +6,7 @@ import "./CardPriorityStyled.css";
 import { AiOutlineDelete, AiOutlineFlag } from "react-icons/ai";
 import { api } from "../../services/Api";
 
-export function Card({ data }) {
+export function Card({ data, handleDelete }) {
     const [changedNote, setChangedNote] = useState("");
 
     function handleEdit(e, priority) {
@@ -21,7 +21,7 @@ export function Card({ data }) {
         if (changedNote && changedNote !== text) {
             await api.patch(`/notes/${data._id}`, {
                 text: changedNote
-            })
+            });
         }
     };
 
@@ -30,7 +30,12 @@ export function Card({ data }) {
             <li className={data.priority ? "cardPriority" : "cardNormal"}>
                 <div>
                     <strong>{data.title}</strong>
-                    <span><AiOutlineDelete size={20} /></span>
+                    <span>
+                        <AiOutlineDelete
+                            size={20}
+                            onClick={() => handleDelete(data._id)}
+                        />
+                    </span>
                 </div>
                 <textarea
                     defaultValue={data.text}

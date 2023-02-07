@@ -19,6 +19,13 @@ export default function App() {
         getAllNotes();
     }, []);
 
+    async function handleDelete(id) {
+        const deletedNote = await api.delete(`/notes/${id}`);
+        if (deletedNote) {
+            setNotesList(notesList.filter(note => note._id !== id))
+        }
+    };
+
     async function handleSubmit(e) {
         e.preventDefault();
         const response = await api.post("/notes", {
@@ -74,7 +81,11 @@ export default function App() {
                 <main>
                     <ul>
                         {notesList.map((data, index) => (
-                            <Card data={data} key={index} />
+                            <Card
+                                data={data}
+                                key={index}
+                                handleDelete={handleDelete}
+                            />
                         ))}
                     </ul>
                 </main>
