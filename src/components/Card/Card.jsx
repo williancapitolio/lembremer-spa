@@ -1,10 +1,8 @@
-//import { CardStyled } from "./CardStyled";
-//import { CardPriorityStyled } from "./CardPriorityStyled";
 import { useState } from "react";
-import "./CardStyled.css";
-import "./CardPriorityStyled.css";
 import { AiOutlineDelete, AiOutlineFlag } from "react-icons/ai";
 import { api } from "../../services/Api";
+import "./CardStyled.css";
+import "./CardPriorityStyled.css";
 
 export function Card({ data, handleDelete, handleChangePriority }) {
     const [changedNote, setChangedNote] = useState("");
