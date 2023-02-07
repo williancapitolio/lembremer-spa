@@ -87,7 +87,7 @@ export default function App() {
             <GlobalStyled />
             <div id="app">
                 <aside>
-                    <strong>Caderno de Notas</strong>
+                    <strong>lembreMer</strong>
                     <form onSubmit={handleSubmit}>
                         <div className="input-block">
                             <label htmlFor="title">Título da Anotação</label>
