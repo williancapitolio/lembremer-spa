@@ -28,7 +28,6 @@ export default function App() {
         });
         setTitle("");
         setText("");
-        console.log(response.data)
         setNotesList([...notesList, response.data]);
     };
 
