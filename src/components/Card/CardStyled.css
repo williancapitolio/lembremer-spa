@@ -1,0 +1,55 @@
+li.cardNormal {
+    background: #FFF;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px 20px 10px 20px;
+}
+
+li.cardNormal div {
+    display: flex;
+    justify-content: space-between;
+}
+
+li.cardNormal div strong {
+    display: block;
+    font-size: 16px;
+    color: #333;
+}
+
+li.cardNormal div span {
+    color: #C4C4C4;
+    cursor: pointer;
+}
+
+li.cardNormal div span:hover {
+    color: #EB8F7A;
+    transition: 0.2s;
+}
+
+li.cardNormal textarea {
+    padding: 7px;
+    margin-top: 7px;
+    margin-bottom: 5px;
+    width: 100%;
+    height: 100px;
+    /*height: 130px;*/
+    font-size: 14px;
+    color: #666;
+    border: 0;
+    background: #FFF;
+    resize: none;
+}
+
+li.cardNormal textarea:hover {
+    cursor: default;
+}
+
+li.cardNormal span {
+    color: #C4C4C4;
+    cursor: pointer;
+}
+
+li.cardNormal span:hover {
+    color: #EB8F7A;
+    transition: 0.2s;
+}

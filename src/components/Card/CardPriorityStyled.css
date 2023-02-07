@@ -1,0 +1,55 @@
+li.cardPriority {
+    background: #EB8F7A;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px 20px 10px 20px;
+}
+
+li.cardPriority div {
+    display: flex;
+    justify-content: space-between;
+}
+
+li.cardPriority div strong {
+    display: block;
+    font-size: 16px;
+    color: #FFF;
+}
+
+li.cardPriority div span {
+    color: #FABBAD;
+    cursor: pointer;
+}
+
+li.cardPriority div span:hover {
+    color: #FFF;
+    transition: 0.2s;
+}
+
+li.cardPriority textarea {
+    padding: 7px;
+    margin-top: 7px;
+    margin-bottom: 5px;
+    width: 100%;
+    height: 100px;
+    /*height: 130px;*/
+    font-size: 14px;
+    color: #FFF;
+    border: 0;
+    background: #EB8F7A;
+    resize: none;
+}
+
+li.cardPriority textarea:hover {
+    cursor: default;
+}
+
+li.cardPriority span {
+    color: #FABBAD;
+    cursor: pointer;
+}
+
+li.cardPriority span:hover {
+    color: #FFF;
+    transition: 0.2s;
+}
