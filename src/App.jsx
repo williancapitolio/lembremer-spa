@@ -14,7 +14,7 @@ export default function App() {
         async function getAllNotes() {
             const response = await api.get("/notes",);
             setNotesList(response.data);
-        }
+        };
         getAllNotes();
     }, []);
 
@@ -27,8 +27,20 @@ export default function App() {
         });
         setTitle("");
         setText("");
-        //setNotesList([...notesList, response.data]);
+        console.log(response.data)
+        setNotesList([...notesList, response.data]);
     };
+
+    useEffect(() => {
+        function enableSubmitButton() {
+            let btn = document.getElementById("SubmitButton");
+            btn.style.background = "#FFD3CA";
+            if (title && text) {
+                btn.style.background = "#EB8F7A";
+            }
+        };
+        enableSubmitButton();
+    }, [title, text]);
 
     return (
         <>
@@ -53,7 +65,7 @@ export default function App() {
                                 onChange={e => setText(e.target.value)}
                             />
                         </div>
-                        <button type="submit">Salvar</button>
+                        <button id="SubmitButton" type="submit">Salvar</button>
                     </form>
                 </AsideStyled>
                 <main>
