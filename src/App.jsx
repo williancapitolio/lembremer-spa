@@ -28,11 +28,7 @@ export default function App() {
 
     const handleChange = (e) => {
         setSelectedValue(e.target.value);
-        if (e.target.checked && e.target.value !== "all") {
-            loadNotes(e.target.value);
-        } else {
-            getAllNotes();
-        }
+        e.target.checked && e.target.value !== "all" ? loadNotes(e.target.value) : getAllNotes();
     };
 
     const controlProps = (item) => ({
@@ -73,11 +69,7 @@ export default function App() {
         });
         setTitle("");
         setText("");
-        if (selectedValue !== "all") {
-            getAllNotes();
-        } else {
-            setNotesList([...notesList, response.data]);
-        }
+        selectedValue !== "all" ? getAllNotes() : setNotesList([...notesList, response.data]);
         setSelectedValue("all");
     };
 
