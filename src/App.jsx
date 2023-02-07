@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { api } from "./services/Api";
 import { GlobalStyled } from "./GlobalStyled";
-//import { Aside } from "./components/Aside/Aside";
-import { AsideStyled } from "./components/Aside/AsideStyled";
 import { Card } from "./components/Card/Card";
 import { RadioButtons } from "./components/RadioButtons/RadioButtons";
 
@@ -88,7 +86,7 @@ export default function App() {
         <>
             <GlobalStyled />
             <div id="app">
-                <AsideStyled>
+                <aside>
                     <strong>Caderno de Notas</strong>
                     <form onSubmit={handleSubmit}>
                         <div className="input-block">
@@ -114,7 +112,7 @@ export default function App() {
                     <RadioButtons
                         controlProps={controlProps}
                     />
-                </AsideStyled>
+                </aside>
                 <main>
                     <ul>
                         {notesList.map((data, index) => (
