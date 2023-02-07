@@ -3,7 +3,7 @@ import Radio from "@mui/material/Radio";
 import { RadioStyled } from "./RadioButtonsStyled";
 
 export function RadioButtons() {
-    const [selectedValue, setSelectedValue] = useState("");
+    const [selectedValue, setSelectedValue] = useState("all");
 
     const handleChange = (event) => {
         setSelectedValue(event.target.value);
@@ -22,7 +22,7 @@ export function RadioButtons() {
             <RadioStyled>
                 <div>
                     <Radio
-                        {...controlProps("todos")}
+                        {...controlProps("all")}
                         sx={{
                             color: "#FFD3CA",
                             "&.Mui-checked": {
@@ -34,7 +34,7 @@ export function RadioButtons() {
                 </div>
                 <div>
                     <Radio
-                        {...controlProps("prioridade")}
+                        {...controlProps("true")}
                         sx={{
                             color: "#FFD3CA",
                             "&.Mui-checked": {
@@ -46,7 +46,7 @@ export function RadioButtons() {
                 </div>
                 <div>
                     <Radio
-                        {...controlProps("normal")}
+                        {...controlProps("false")}
                         sx={{
                             color: "#FFD3CA",
                             "&.Mui-checked": {
