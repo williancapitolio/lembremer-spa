@@ -54,6 +54,7 @@ export default function App() {
                             <label htmlFor="title">Título da Anotação</label>
                             <input
                                 required
+                                maxLength={30}
                                 value={title}
                                 onChange={e => setTitle(e.target.value)}
                             />
@@ -62,6 +63,7 @@ export default function App() {
                             <label htmlFor="notes">Anotações</label>
                             <textarea
                                 required
+                                maxLength={150}
                                 value={text}
                                 onChange={e => setText(e.target.value)}
                             />
