@@ -1,7 +1,6 @@
-import React from "react";
 import { CardStyled } from "./CardStyled";
 
-export default function Card({ data }) {
+export function Card({ data }) {
     return (
         <>
             <CardStyled>
@@ -13,5 +12,5 @@ export default function Card({ data }) {
                 <span>!</span>
             </CardStyled>
         </>
-    )
+    );
 };

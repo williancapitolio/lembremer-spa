@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { api } from "./services/Api";
 import { GlobalStyled } from "./GlobalStyled";
 import { AsideStyled } from "./components/Aside/AsideStyled";
 //import Aside from "./components/Aside/Aside";
-import Card from "./components/Card/Card";
+import { Card } from "./components/Card/Card";
 
 export default function App() {
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
-    const [allNotes, setAllNotes] = useState([]);
+    const [notesList, setNotesList] = useState([]);
 
     useEffect(() => {
         async function getAllNotes() {
             const response = await api.get("/notes",);
-            setAllNotes(response.data);
+            setNotesList(response.data);
         }
-        getAllNotes()
+        getAllNotes();
     }, []);
 
     async function handleSubmit(e) {
@@ -27,7 +27,7 @@ export default function App() {
         });
         setTitle("");
         setText("");
-        setAllNotes([...allNotes, response.data])
+        //setNotesList([...notesList, response.data]);
     };
 
     return (
@@ -58,7 +58,7 @@ export default function App() {
                 </AsideStyled>
                 <main>
                     <ul>
-                        {allNotes.map((data, index) => (
+                        {notesList.map((data, index) => (
                             <Card data={data} key={index} />
                         ))}
                     </ul>
