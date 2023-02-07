@@ -6,7 +6,7 @@ import "./CardPriorityStyled.css";
 import { AiOutlineDelete, AiOutlineFlag } from "react-icons/ai";
 import { api } from "../../services/Api";
 
-export function Card({ data, handleDelete }) {
+export function Card({ data, handleDelete, handleChangePriority }) {
     const [changedNote, setChangedNote] = useState("");
 
     function handleEdit(e, priority) {
@@ -43,7 +43,12 @@ export function Card({ data, handleDelete }) {
                     onChange={e => setChangedNote(e.target.value)}
                     onBlur={e => handleSave(e.target, data.text)}
                 />
-                <span><AiOutlineFlag size={20} /></span>
+                <span>
+                    <AiOutlineFlag
+                        size={20}
+                        onClick={() => handleChangePriority(data._id)}
+                    />
+                </span>
             </li>
         </>
     );

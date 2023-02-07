@@ -12,17 +12,25 @@ export default function App() {
     const [notesList, setNotesList] = useState([]);
 
     useEffect(() => {
-        async function getAllNotes() {
-            const response = await api.get("/notes",);
-            setNotesList(response.data);
-        };
         getAllNotes();
     }, []);
+
+    async function getAllNotes() {
+        const response = await api.get("/notes",);
+        setNotesList(response.data);
+    };
 
     async function handleDelete(id) {
         const deletedNote = await api.delete(`/notes/${id}`);
         if (deletedNote) {
             setNotesList(notesList.filter(note => note._id !== id))
+        }
+    };
+
+    async function handleChangePriority(id) {
+        const changedPriorityNote = await api.patch(`/priorities/${id}`);
+        if (changedPriorityNote) {
+            getAllNotes();
         }
     };
 
@@ -85,6 +93,7 @@ export default function App() {
                                 data={data}
                                 key={index}
                                 handleDelete={handleDelete}
+                                handleChangePriority={handleChangePriority}
                             />
                         ))}
                     </ul>
