@@ -4,6 +4,7 @@ import { GlobalStyled } from "./GlobalStyled";
 import { AsideStyled } from "./components/Aside/AsideStyled";
 //import Aside from "./components/Aside/Aside";
 import { Card } from "./components/Card/Card";
+import { RadioButtons } from "./components/RadioButtons/RadioButtons";
 
 export default function App() {
     const [title, setTitle] = useState("");
@@ -67,6 +68,7 @@ export default function App() {
                         </div>
                         <button id="SubmitButton" type="submit">Salvar</button>
                     </form>
+                    <RadioButtons />
                 </AsideStyled>
                 <main>
                     <ul>
